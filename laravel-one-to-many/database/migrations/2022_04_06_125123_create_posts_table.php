@@ -18,7 +18,6 @@ class CreatePostsTable extends Migration
 
             $table->string('title');
             $table->text('content');
-            // campo che rappresenta titolo in un formato non soggetto a slug
             $table->string('slug')->unique();
             
             $table->timestamps();
