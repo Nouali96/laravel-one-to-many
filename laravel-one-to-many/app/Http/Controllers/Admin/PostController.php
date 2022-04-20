@@ -50,9 +50,6 @@ class PostController extends Controller
 
         $data = $request->all();
 
-        // creo slug univoco, nel caso in cui il nuovo è già presente nel database ne creo uno diverso, concatenandolo ad un couter
-        // Prova-nuovo-post 
-        // Prova-nuovo-post-1
         $slug = Str::slug($data['title']);
 
         $counter = 1;
@@ -111,12 +108,8 @@ class PostController extends Controller
 
         $data = $request->all();
 
-        // creo slug univoco, nel caso in cui il nuovo è già presente nel database ne creo uno diverso, concatenandolo ad un couter
-        // Prova-nuovo-post 
-        // Prova-nuovo-post-1
         $slug = Str::slug($data['title']);
 
-        //solo se il nuovo slug è diverso da quello che c'era prima ne crei uno nuovo diverso da quelli presenti sul database
         if($post->slug != $slug){ 
             $counter = 1;
             while (Post::where('slug', $slug)->first()) {
